@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Statistics extends StatelessWidget {
   const Statistics({super.key});
@@ -62,13 +63,42 @@ class Statistics extends StatelessWidget {
                         "30c",
                         style: GoogleFonts.poppins(
                             fontSize: 32, fontWeight: FontWeight.w500),
-                      )
+                      ),
                     ],
                   ),
-                ))
+                )),
+            SizedBox(
+              height: 400,
+              width: width,
+              child: SfCartesianChart(
+                primaryXAxis: CategoryAxis(),
+                series: <LineSeries<TemperatureData, String>>[
+                  LineSeries<TemperatureData, String>(
+                      dataSource: <TemperatureData>[
+                        TemperatureData(day: 'Mon', temp: 10),
+                        TemperatureData(day: 'Tue', temp: 12),
+                        TemperatureData(day: 'Wed', temp: 12),
+                        TemperatureData(day: 'Thu', temp: 15),
+                        TemperatureData(day: 'Fri', temp: 10),
+                        TemperatureData(day: 'Sat', temp: 20),
+                        TemperatureData(day: 'Sun', temp: 18),
+                      ],
+                      xValueMapper: (TemperatureData temp, _) => temp.day,
+                      yValueMapper: (TemperatureData temp, _) => temp.temp,
+                      dataLabelSettings:
+                          const DataLabelSettings(isVisible: true)),
+                ],
+              ),
+            )
           ],
         ),
       ),
     );
   }
+}
+
+class TemperatureData {
+  TemperatureData({required this.day, required this.temp});
+  final String day;
+  final double temp;
 }
