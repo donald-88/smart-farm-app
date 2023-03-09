@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:smart_farm/pages/landing.dart';
+import 'package:smart_farm/pages/statistics.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
-                bodyText2:
-                    GoogleFonts.poppins(fontSize: 14, color: Colors.white))),
-        home: const Landing());
+                bodyText2: GoogleFonts.poppins(
+                    fontSize: 14, color: Colors.grey[600]))),
+        home: const Statistics());
   }
 }

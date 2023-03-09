@@ -38,7 +38,7 @@ class Landing extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      "The green house system is to help you manage your yield easily on your finger tips. ",
+                      "The greenhouse system is to help you manage your yield easily on your finger tips. ",
                       style: Theme.of(context).textTheme.bodyText2,
                       textAlign: TextAlign.center,
                     ),
