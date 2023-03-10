@@ -81,10 +81,12 @@ class Statistics extends StatelessWidget {
                 height: 400,
                 width: width,
                 child: SfCartesianChart(
-                    legend: Legend(isVisible: true, position: LegendPosition.auto),
+                    legend: Legend(isVisible: true),
                     primaryXAxis: CategoryAxis(),
                     series: <ChartSeries<TemperatureData, String>>[
                       ColumnSeries<TemperatureData, String>(
+                          color: Colors.red[300],
+                          name: "hot",
                           dataSource: barData,
                           xValueMapper: (TemperatureData temp, _) => temp.day,
                           yValueMapper: (TemperatureData temp, _) => temp.temp,
