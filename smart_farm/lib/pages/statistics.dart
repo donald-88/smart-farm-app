@@ -7,6 +7,15 @@ class Statistics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<TemperatureData> barData = [
+      TemperatureData(day: "Mon", temp: 20, color: Colors.green),
+      TemperatureData(day: "Tue", temp: 22, color: Colors.blue),
+      TemperatureData(day: "Wed", temp: 10, color: Colors.red),
+      TemperatureData(day: "Thu", temp: 20, color: Colors.yellow),
+      TemperatureData(day: "Fri", temp: 28, color: Colors.purple),
+      TemperatureData(day: "Sat", temp: 24, color: Colors.orange),
+      TemperatureData(day: "Sun", temp: 9, color: Colors.pink),
+    ];
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -67,29 +76,25 @@ class Statistics extends StatelessWidget {
                     ],
                   ),
                 )),
+            const SizedBox(height: 20),
             SizedBox(
-              height: 400,
-              width: width,
-              child: SfCartesianChart(
-                primaryXAxis: CategoryAxis(),
-                series: <LineSeries<TemperatureData, String>>[
-                  LineSeries<TemperatureData, String>(
-                      dataSource: <TemperatureData>[
-                        TemperatureData(day: 'Mon', temp: 10),
-                        TemperatureData(day: 'Tue', temp: 12),
-                        TemperatureData(day: 'Wed', temp: 12),
-                        TemperatureData(day: 'Thu', temp: 15),
-                        TemperatureData(day: 'Fri', temp: 10),
-                        TemperatureData(day: 'Sat', temp: 20),
-                        TemperatureData(day: 'Sun', temp: 18),
-                      ],
-                      xValueMapper: (TemperatureData temp, _) => temp.day,
-                      yValueMapper: (TemperatureData temp, _) => temp.temp,
-                      dataLabelSettings:
-                          const DataLabelSettings(isVisible: true)),
-                ],
-              ),
-            )
+                height: 400,
+                width: width,
+                child: SfCartesianChart(
+                    legend: Legend(isVisible: true, position: LegendPosition.auto),
+                    primaryXAxis: CategoryAxis(),
+                    series: <ChartSeries<TemperatureData, String>>[
+                      ColumnSeries<TemperatureData, String>(
+                          dataSource: barData,
+                          xValueMapper: (TemperatureData temp, _) => temp.day,
+                          yValueMapper: (TemperatureData temp, _) => temp.temp,
+                          width: 0.4,
+                          yAxisName: "Temperature",
+                          xAxisName: "Days",
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(16),
+                              topRight: Radius.circular(16))),
+                    ]))
           ],
         ),
       ),
@@ -98,7 +103,8 @@ class Statistics extends StatelessWidget {
 }
 
 class TemperatureData {
-  TemperatureData({required this.day, required this.temp});
+  TemperatureData({required this.day, required this.temp, required this.color});
   final String day;
   final double temp;
+  final Color color;
 }

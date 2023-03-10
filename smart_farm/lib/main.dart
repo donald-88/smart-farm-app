@@ -17,12 +17,13 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             useMaterial3: true,
             textTheme: TextTheme(
-                button: GoogleFonts.poppins(fontSize: 16, color: Colors.white),
-                headline2: GoogleFonts.poppins(
+                labelLarge:
+                    GoogleFonts.poppins(fontSize: 16, color: Colors.white),
+                displayMedium: GoogleFonts.poppins(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
-                bodyText2: GoogleFonts.poppins(
+                bodyMedium: GoogleFonts.poppins(
                     fontSize: 14, color: Colors.grey[600]))),
         home: const Statistics());
   }

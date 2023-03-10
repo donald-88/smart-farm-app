@@ -31,7 +31,7 @@ class Landing extends StatelessWidget {
                   children: [
                     Text(
                       "Lets Manage Our Green House",
-                      style: Theme.of(context).textTheme.headline2,
+                      style: Theme.of(context).textTheme.displayMedium,
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(
@@ -39,7 +39,7 @@ class Landing extends StatelessWidget {
                     ),
                     Text(
                       "The greenhouse system is to help you manage your yield easily on your finger tips. ",
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       textAlign: TextAlign.center,
                     ),
                   ],
