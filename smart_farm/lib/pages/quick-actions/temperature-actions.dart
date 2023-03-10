@@ -19,50 +19,93 @@ class TemperatureActions extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              child: SfRadialGauge(
-                axes: <RadialAxis>[
-                  RadialAxis(
-                    tickOffset: 15,
-                    labelOffset: 25,
-                    annotations: <GaugeAnnotation>[
-                      GaugeAnnotation(
-                          widget: Text(
-                        "60",
-                        style: GoogleFonts.poppins(
-                            fontSize: 40, fontWeight: FontWeight.bold),
-                      ))
-                    ],
-                    minimum: 0,
-                    maximum: 150,
-                    ranges: <GaugeRange>[
-                      GaugeRange(
-                        startValue: 0,
-                        endValue: 30,
-                        color: Colors.blueAccent[100],
-                        labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
-                      ),
-                      GaugeRange(
-                        startValue: 30,
-                        endValue: 50,
-                        color: Colors.orangeAccent[100],
-                        labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
-                      ),
-                      GaugeRange(
-                        startValue: 50,
-                        endValue: 80,
-                        color: Colors.redAccent[100],
-                        labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
-                      )
-                    ],
-                  )
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      height: 12,
+                      width: 12,
+                      decoration: BoxDecoration(color: Colors.blueAccent[100]),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      "Cold",
+                      style: GoogleFonts.poppins(fontSize: 12),
+                    )
+                  ],
+                ),
+                const SizedBox(width: 10),
+                Row(
+                  children: [
+                    Container(
+                      height: 12,
+                      width: 12,
+                      decoration:
+                          BoxDecoration(color: Colors.orangeAccent[100]),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      "Warm",
+                      style: GoogleFonts.poppins(fontSize: 12),
+                    )
+                  ],
+                ),
+                const SizedBox(width: 10),
+                Row(
+                  children: [
+                    Container(
+                      height: 12,
+                      width: 12,
+                      decoration: BoxDecoration(color: Colors.redAccent[100]),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      "Hot",
+                      style: GoogleFonts.poppins(fontSize: 12),
+                    )
+                  ],
+                )
+              ],
             ),
-            Container(
-              child: Row(
-                children: const [],
-              ),
+            SfRadialGauge(
+              axes: <RadialAxis>[
+                RadialAxis(
+                  tickOffset: 15,
+                  labelOffset: 25,
+                  annotations: <GaugeAnnotation>[
+                    GaugeAnnotation(
+                        widget: Text(
+                      "60",
+                      style: GoogleFonts.poppins(
+                          fontSize: 40, fontWeight: FontWeight.bold),
+                    ))
+                  ],
+                  minimum: 0,
+                  maximum: 150,
+                  ranges: <GaugeRange>[
+                    GaugeRange(
+                      startValue: 0,
+                      endValue: 30,
+                      color: Colors.blueAccent[100],
+                      labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
+                    ),
+                    GaugeRange(
+                      startValue: 30,
+                      endValue: 50,
+                      color: Colors.orangeAccent[100],
+                      labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
+                    ),
+                    GaugeRange(
+                      startValue: 50,
+                      endValue: 80,
+                      color: Colors.redAccent[100],
+                      labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
+                    )
+                  ],
+                )
+              ],
             ),
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
