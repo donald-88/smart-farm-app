@@ -27,7 +27,10 @@ class TemperatureActions extends StatelessWidget {
                     Container(
                       height: 12,
                       width: 12,
-                      decoration: BoxDecoration(color: Colors.blueAccent[100]),
+                      decoration: BoxDecoration(
+                          color: Colors.blueAccent[100],
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(2))),
                     ),
                     const SizedBox(width: 4),
                     Text(
@@ -42,8 +45,10 @@ class TemperatureActions extends StatelessWidget {
                     Container(
                       height: 12,
                       width: 12,
-                      decoration:
-                          BoxDecoration(color: Colors.orangeAccent[100]),
+                      decoration: BoxDecoration(
+                          color: Colors.orangeAccent[100],
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(2))),
                     ),
                     const SizedBox(width: 4),
                     Text(
@@ -58,7 +63,10 @@ class TemperatureActions extends StatelessWidget {
                     Container(
                       height: 12,
                       width: 12,
-                      decoration: BoxDecoration(color: Colors.redAccent[100]),
+                      decoration: BoxDecoration(
+                          color: Colors.redAccent[100],
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(2))),
                     ),
                     const SizedBox(width: 4),
                     Text(
@@ -72,20 +80,33 @@ class TemperatureActions extends StatelessWidget {
             SfRadialGauge(
               axes: <RadialAxis>[
                 RadialAxis(
-                  tickOffset: 15,
-                  labelOffset: 25,
-                  annotations: <GaugeAnnotation>[
-                    GaugeAnnotation(
-                        widget: Text(
-                      "60",
-                      style: GoogleFonts.poppins(
-                          fontSize: 40, fontWeight: FontWeight.bold),
-                    ))
-                  ],
+                  tickOffset: 3,
+                  labelOffset: 15,
+                  // annotations: <GaugeAnnotation>[
+                  //   GaugeAnnotation(
+                  //       widget: Text(
+                  //     "60°",
+                  //     style: GoogleFonts.poppins(
+                  //         fontSize: 40, fontWeight: FontWeight.bold),
+                  //   ))
+                  // ],
                   minimum: 0,
-                  maximum: 150,
+                  maximum: 140,
+                  pointers: <GaugePointer>[
+                    NeedlePointer(
+                      value: 60,
+                      knobStyle: KnobStyle(
+                          color: Colors.grey[400],
+                          knobRadius: 0.05,
+                          borderColor: Colors.grey),
+                      needleColor: Colors.grey[300],
+                      needleStartWidth: 1,
+                      needleEndWidth: 5,
+                    )
+                  ],
                   ranges: <GaugeRange>[
                     GaugeRange(
+                      startWidth: 20,
                       startValue: 0,
                       endValue: 30,
                       color: Colors.blueAccent[100],
@@ -99,9 +120,21 @@ class TemperatureActions extends StatelessWidget {
                     ),
                     GaugeRange(
                       startValue: 50,
-                      endValue: 80,
+                      endValue: 70,
                       color: Colors.redAccent[100],
                       labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
+                    ),
+                    GaugeRange(
+                      startValue: 70,
+                      endValue: 110,
+                      color: Colors.grey.shade300,
+                      labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
+                    ),
+                    GaugeRange(
+                      endWidth: 20,
+                      startValue: 110,
+                      endValue: 140,
+                      color: Colors.grey[300],
                     )
                   ],
                 )
