@@ -32,13 +32,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  dio: ^5.0.1
-  google_fonts: ^4.0.3
-  syncfusion_flutter_charts: ^20.4.53
-  syncfusion_flutter_gauges: ^20.4.53
+    # The following adds the Cupertino Icons font to your application.
+    # Use with the CupertinoIcons class for iOS style icons.
+    cupertino_icons: ^1.0.2
+    dio: ^5.0.1
+    google_fonts: ^4.0.3
+    syncfusion_flutter_charts: ^20.4.53
+    syncfusion_flutter_gauges: ^20.4.53
+    smooth_page_indicator:
 
 dev_dependencies:
   flutter_test:
@@ -61,9 +62,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/images/landing_pic.png
+    # To add assets to your application, add an assets section, like this:
+    assets:
+        - assets/images/landing_pic.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
