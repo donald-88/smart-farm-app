@@ -37,7 +37,7 @@ class MainCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                    height: 40, child: Image.asset('lib/assets/rain.png')),
+                    height: 40, child: Image.asset('assets/icons/drop.png')),
                 Column(
                   children: [
                     Text(
@@ -94,7 +94,8 @@ class MainCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                        height: 40, child: Image.asset('lib/assets/drop.png')),
+                        height: 40,
+                        child: Image.asset('assets/icons/rain.png')),
                     Column(
                       children: [
                         Text(
