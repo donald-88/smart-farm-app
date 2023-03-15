@@ -132,12 +132,12 @@ class _HomeState extends State<Home> {
                       SensorCard(
                         sensor: "Temperature",
                         sensorValue: 20,
-                        sensorIcon: "lib/assets/temperature-high_48.png",
+                        sensorIcon: "assets/icons/temperature-high_48.png",
                       ),
                       SensorCard(
                         sensor: "Light",
                         sensorValue: 60,
-                        sensorIcon: "lib/assets/brightness_48.png",
+                        sensorIcon: "assets/icons/brightness_48.png",
                       ),
                     ],
                   ),
