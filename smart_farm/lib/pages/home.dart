@@ -24,51 +24,48 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             // Appbar
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            'Hi, ',
-                            style: TextStyle(
-                                fontSize: 26, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            'NxtGen!',
-                            style: TextStyle(fontSize: 26),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'welcome, back!',
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Color.fromARGB(255, 180, 180, 180)),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'Hi, ',
+                          style: TextStyle(
+                              fontSize: 26, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'NxtGen!',
+                          style: TextStyle(fontSize: 26),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'welcome, back!',
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 180, 180, 180)),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
 
-                  // user account logo
-                  Container(
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          color: Colors.grey[400], shape: BoxShape.circle),
-                      child: Icon(Icons.account_circle)),
-                ],
-              ),
+                // user account logo
+                Container(
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        color: Colors.grey[400], shape: BoxShape.circle),
+                    child: Icon(Icons.account_circle)),
+              ],
             ),
             SizedBox(height: 25.0),
             //biggest card
