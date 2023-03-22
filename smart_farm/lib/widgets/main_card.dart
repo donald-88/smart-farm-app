@@ -71,8 +71,7 @@ class MainCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                    height: 40,
-                    child: Image.asset('assets/icons/rain.png')),
+                    height: 40, child: Image.asset('assets/icons/rain.png')),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -85,12 +84,12 @@ class MainCard extends StatelessWidget {
                     ),
                     Text(
                       "Sunny",
-                      style:
-                          TextStyle(color: Colors.grey[800], fontSize: 15),
+                      style: TextStyle(color: Colors.grey[800], fontSize: 15),
                     ),
                   ],
                 ),
-                Text('${(temperture - 5).toString()}°c',
+                Text(
+                  '${(temperture - 5).toString()}°c',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,

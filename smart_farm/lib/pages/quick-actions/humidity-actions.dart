@@ -14,21 +14,19 @@ class HumidityActions extends StatelessWidget {
       body: Column(
         children: [
           Container(),
-          Container(
-            child: Column(children: [
-              const Text("Quick Actions"),
-              Row(
-                children: [
-                  Container(
-                    height: 100,
-                    width: 70,
-                    decoration: BoxDecoration(color: Colors.green[200]),
-                  ),
-                  Container()
-                ],
-              )
-            ]),
-          )
+          Column(children: [
+            const Text("Quick Actions"),
+            Row(
+              children: [
+                Container(
+                  height: 100,
+                  width: 70,
+                  decoration: BoxDecoration(color: Colors.green[200]),
+                ),
+                Container()
+              ],
+            )
+          ])
         ],
       ),
     );

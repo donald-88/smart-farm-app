@@ -15,11 +15,22 @@ class _HomeState extends State<Home> {
   //page controller
   final _controller = PageController();
 
+  final List<SensorClass> sensorList = [
+    SensorClass(
+        sensor: "Temperature",
+        value: "20°c",
+        sensorIcon: "assets/icons/temperature-high_48.png"),
+    SensorClass(
+        sensor: "Light",
+        value: "58",
+        sensorIcon: "assets/icons/brightness_48.png"),
+    SensorClass(
+        sensor: "Humidity", value: "59", sensorIcon: "assets/icons/drop.png")
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      // ignore: prefer_const_literals_to_create_immutables
       body: SafeArea(
         child: Column(
           children: [
@@ -44,7 +55,7 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
-
+              
                   // user account logo
                   Container(
                       padding: EdgeInsets.all(8),
@@ -55,7 +66,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             //biggest card
-
+              
             SizedBox(
               height: 200,
               child: PageView(
@@ -108,7 +119,7 @@ class _HomeState extends State<Home> {
             ),
             Expanded(
               child: GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                  physics: NeverScrollableScrollPhysics(),
                   padding: EdgeInsets.all(16),
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 220,
@@ -118,9 +129,9 @@ class _HomeState extends State<Home> {
                   itemCount: 3,
                   itemBuilder: (context, index) {
                     return SensorCard(
-                      sensor: "Temperature",
-                      sensorValue: 20,
-                      sensorIcon: "assets/icons/temperature-high_48.png",
+                      sensor: sensorList[index].sensor,
+                      sensorValue: sensorList[index].value,
+                      sensorIcon: sensorList[index].sensorIcon,
                     );
                   }),
             )
@@ -129,4 +140,13 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
+
+class SensorClass {
+  final String sensor;
+  final String value;
+  final String sensorIcon;
+
+  SensorClass(
+      {required this.sensor, required this.value, required this.sensorIcon});
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SensorCard extends StatelessWidget {
   final String sensor;
-  final int sensorValue;
+  final String sensorValue;
   final String sensorIcon;
 
   const SensorCard(
@@ -16,7 +16,7 @@ class SensorCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 226, 243, 233),
+          color:  Colors.grey.shade300,
           border: Border.all(color: Colors.brown.shade100, width: 2),
           borderRadius: BorderRadius.circular(16)),
       child: Column(
@@ -24,15 +24,15 @@ class SensorCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(height: 42, child: Image.asset(sensorIcon)),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
           Text(
-            '${sensorValue.toString()}°c',
+            sensorValue.toString(),
             style: TextStyle(
                 color: Colors.grey.shade800,
                 fontWeight: FontWeight.bold,
                 fontSize: 22),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
           Text(
             sensor,
             style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
