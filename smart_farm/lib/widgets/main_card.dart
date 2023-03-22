@@ -22,13 +22,14 @@ class MainCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Container(
         width: 300,
         height: 200,
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
             color: Color.fromARGB(255, 226, 243, 233),
+            border: Border.all(color: Colors.brown.shade100, width: 1.5),
             borderRadius: BorderRadius.circular(16)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,109 +37,66 @@ class MainCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
+                SizedBox(
                     height: 40, child: Image.asset('assets/icons/drop.png')),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "$day/$month/$year",
+                      "Today, March 2023",
                       style: TextStyle(color: Colors.grey),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      weather.toString(),
+                      "Rainy",
                       style: TextStyle(color: Colors.grey[800], fontSize: 15),
                     ),
                   ],
                 ),
-                RichText(
-                  text: TextSpan(
-                    text: temperture.toString(),
-                    style: TextStyle(fontSize: 20, color: Colors.blue[800]),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: 'o',
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FontStyle.italic),
-                      ),
-                      TextSpan(
-                        text: 'C',
-                        style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  strutStyle: StrutStyle(
-                    fontSize: 20.0,
-                    height: 1.5,
-                  ),
-                )
+                Text(
+                  '${temperture.toString()}°c',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black54),
+                ),
               ],
             ),
-            SizedBox(
-              height: 20,
+            Divider(
+              height: 40,
             ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border(
-                top: BorderSide(
-                    color: Color.fromARGB(255, 201, 201, 201), width: 1.0),
-              )),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                    height: 40,
+                    child: Image.asset('assets/icons/rain.png')),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                        height: 40,
-                        child: Image.asset('assets/icons/rain.png')),
-                    Column(
-                      children: [
-                        Text(
-                          "$day/$month/$year",
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          weather.toString(),
-                          style:
-                              TextStyle(color: Colors.grey[800], fontSize: 15),
-                        ),
-                      ],
+                    Text(
+                      "Today, March 2023",
+                      style: TextStyle(color: Colors.grey),
                     ),
-                    RichText(
-                      text: TextSpan(
-                        text: (temperture - 5).toString(),
-                        style: TextStyle(fontSize: 20),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: 'o',
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.italic),
-                          ),
-                          TextSpan(
-                            text: 'C',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      strutStyle: StrutStyle(
-                        fontSize: 20.0,
-                        height: 1.5,
-                      ),
-                    )
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Sunny",
+                      style:
+                          TextStyle(color: Colors.grey[800], fontSize: 15),
+                    ),
                   ],
                 ),
-              ),
+                Text('${(temperture - 5).toString()}°c',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black54),
+                ),
+              ],
             ),
           ],
         ),

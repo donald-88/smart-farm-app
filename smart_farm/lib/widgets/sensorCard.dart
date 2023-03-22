@@ -14,25 +14,28 @@ class SensorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-          color: Color.fromARGB(255, 226, 243, 233),
+          color: const Color.fromARGB(255, 226, 243, 233),
           border: Border.all(color: Colors.brown.shade100, width: 2),
           borderRadius: BorderRadius.circular(16)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(height: 50, child: Image.asset(sensorIcon)),
-          SizedBox(height: 16),
+          SizedBox(height: 42, child: Image.asset(sensorIcon)),
+          const SizedBox(height: 16),
           Text(
             '${sensorValue.toString()}°c',
-            style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold, fontSize: 24),
+            style: TextStyle(
+                color: Colors.grey.shade800,
+                fontWeight: FontWeight.bold,
+                fontSize: 22),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Text(
             sensor,
-            style: TextStyle(fontSize: 12, color: Colors.black),
+            style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
           ),
         ],
       ),
