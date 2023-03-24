@@ -18,14 +18,19 @@ class _HomeState extends State<Home> {
   final List<SensorClass> sensorList = [
     SensorClass(
         sensor: "Temperature",
-        value: "20°c",
-        sensorIcon: "assets/icons/temperature-high_48.png"),
+        value: "21.3°c",
+        sensorIcon: "assets/icons/temperature-high_48.png",
+        route: "tempActions"),
     SensorClass(
         sensor: "Light",
-        value: "58",
-        sensorIcon: "assets/icons/brightness_48.png"),
+        value: "58.3%",
+        sensorIcon: "assets/icons/brightness_48.png",
+        route: "lightActions"),
     SensorClass(
-        sensor: "Humidity", value: "59", sensorIcon: "assets/icons/drop.png")
+        sensor: "Humidity",
+        value: "14.6",
+        sensorIcon: "assets/icons/drop.png",
+        route: "humidityActions")
   ];
 
   @override
@@ -55,7 +60,7 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
-              
+
                   // user account logo
                   Container(
                       padding: EdgeInsets.all(8),
@@ -66,7 +71,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             //biggest card
-              
+
             SizedBox(
               height: 200,
               child: PageView(
@@ -132,6 +137,7 @@ class _HomeState extends State<Home> {
                       sensor: sensorList[index].sensor,
                       sensorValue: sensorList[index].value,
                       sensorIcon: sensorList[index].sensorIcon,
+                      route: sensorList[index].route,
                     );
                   }),
             )
@@ -146,7 +152,11 @@ class SensorClass {
   final String sensor;
   final String value;
   final String sensorIcon;
+  final String route;
 
   SensorClass(
-      {required this.sensor, required this.value, required this.sensorIcon});
+      {required this.sensor,
+      required this.value,
+      required this.sensorIcon,
+      required this.route});
 }

@@ -9,7 +9,11 @@ class TemperatureActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back)),
         title: const Text("Temperature"),
         actions: const [Icon(Icons.more_vert)],
       ),
@@ -82,28 +86,25 @@ class TemperatureActions extends StatelessWidget {
                 RadialAxis(
                   tickOffset: 3,
                   labelOffset: 15,
-                  // annotations: <GaugeAnnotation>[
-                  //   GaugeAnnotation(
-                  //       widget: Text(
-                  //     "60°",
-                  //     style: GoogleFonts.poppins(
-                  //         fontSize: 40, fontWeight: FontWeight.bold),
-                  //   ))
-                  // ],
+                  annotations: <GaugeAnnotation>[
+                    GaugeAnnotation(
+                        widget: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "60",
+                          style: GoogleFonts.poppins(
+                              fontSize: 44, fontWeight: FontWeight.w600),
+                        ),
+                        const Text(
+                          "°c",
+                          style: TextStyle(fontSize: 28),
+                        )
+                      ],
+                    ))
+                  ],
                   minimum: 0,
                   maximum: 140,
-                  pointers: <GaugePointer>[
-                    NeedlePointer(
-                      value: 60,
-                      knobStyle: KnobStyle(
-                          color: Colors.grey[400],
-                          knobRadius: 0.05,
-                          borderColor: Colors.grey),
-                      needleColor: Colors.grey[300],
-                      needleStartWidth: 1,
-                      needleEndWidth: 5,
-                    )
-                  ],
                   ranges: <GaugeRange>[
                     GaugeRange(
                       startWidth: 20,

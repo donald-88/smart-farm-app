@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class LightActions extends StatelessWidget {
   const LightActions({super.key});
@@ -7,29 +9,215 @@ class LightActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back)),
         title: const Text("Light"),
         actions: const [Icon(Icons.more_vert)],
       ),
-      body: Column(
-        children: [
-          Container(),
-          Container(
-            child: Column(children: [
-              const Text("Quick Actions"),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      height: 12,
+                      width: 12,
+                      decoration: BoxDecoration(
+                          color: Colors.blueAccent[100],
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(2))),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      "Cold",
+                      style: GoogleFonts.poppins(fontSize: 12),
+                    )
+                  ],
+                ),
+                const SizedBox(width: 10),
+                Row(
+                  children: [
+                    Container(
+                      height: 12,
+                      width: 12,
+                      decoration: BoxDecoration(
+                          color: Colors.orangeAccent[100],
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(2))),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      "Warm",
+                      style: GoogleFonts.poppins(fontSize: 12),
+                    )
+                  ],
+                ),
+                const SizedBox(width: 10),
+                Row(
+                  children: [
+                    Container(
+                      height: 12,
+                      width: 12,
+                      decoration: BoxDecoration(
+                          color: Colors.redAccent[100],
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(2))),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      "Hot",
+                      style: GoogleFonts.poppins(fontSize: 12),
+                    )
+                  ],
+                )
+              ],
+            ),
+            SfRadialGauge(
+              axes: <RadialAxis>[
+                RadialAxis(
+                  tickOffset: 3,
+                  labelOffset: 15,
+                  annotations: <GaugeAnnotation>[
+                    GaugeAnnotation(
+                        widget: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "58.3",
+                          style: GoogleFonts.poppins(
+                              fontSize: 44, fontWeight: FontWeight.w600),
+                        ),
+                        const Text(
+                          "w/m2",
+                          style: TextStyle(fontSize: 16),
+                        )
+                      ],
+                    ))
+                  ],
+                  minimum: 0,
+                  maximum: 140,
+                  ranges: <GaugeRange>[
+                    GaugeRange(
+                      startWidth: 20,
+                      startValue: 0,
+                      endValue: 50,
+                      color: Colors.blueAccent[100],
+                      labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
+                    ),
+                    GaugeRange(
+                      startValue: 50,
+                      endValue: 60,
+                      color: Colors.orangeAccent[100],
+                      labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
+                    ),
+                    GaugeRange(
+                      startValue: 60,
+                      endValue: 70,
+                      color: Colors.redAccent[100],
+                      labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
+                    ),
+                    GaugeRange(
+                      startValue: 70,
+                      endValue: 110,
+                      color: Colors.grey.shade300,
+                      labelStyle: const GaugeTextStyle(fontFamily: 'Poppins'),
+                    ),
+                    GaugeRange(
+                      endWidth: 20,
+                      startValue: 110,
+                      endValue: 140,
+                      color: Colors.grey[300],
+                    )
+                  ],
+                )
+              ],
+            ),
+            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
+                "Quick Actions",
+                style: GoogleFonts.poppins(
+                    fontSize: 18, fontWeight: FontWeight.w500),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               Row(
+                mainAxisSize: MainAxisSize.max,
                 children: [
-                  Container(
-                    height: 100,
-                    width: 70,
-                    decoration: BoxDecoration(color: Colors.green[200]),
+                  Expanded(
+                    child: Container(
+                      height: 132,
+                      decoration: BoxDecoration(
+                          color: Colors.brown[100],
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(16))),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const Icon(
+                              Icons.stacked_bar_chart,
+                              size: 40,
+                              color: Colors.brown,
+                            ),
+                            Text(
+                              "Statistics",
+                              style: GoogleFonts.poppins(fontSize: 18),
+                            )
+                          ]),
+                    ),
                   ),
-                  Container()
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Container(
+                      height: 132,
+                      decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(16))),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Switch(
+                              trackColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                      (Set<MaterialState> states) {
+                                if (states.contains(MaterialState.disabled)) {
+                                  return Colors.brown.shade100;
+                                }
+                                return Colors.brown.shade100;
+                              }),
+                              thumbColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                      (Set<MaterialState> states) {
+                                if (states.contains(MaterialState.disabled)) {
+                                  return Colors.brown.shade300;
+                                }
+                                return const Color.fromRGBO(194, 165, 165, 1);
+                              }),
+                              value: true,
+                              onChanged: ((value) => print(value))),
+                          Text(
+                            "Heater On",
+                            style: GoogleFonts.poppins(fontSize: 18),
+                          )
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               )
-            ]),
-          )
-        ],
+            ])
+          ],
+        ),
       ),
     );
   }
